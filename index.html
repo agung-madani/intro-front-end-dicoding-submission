@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf App</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the external style sheet -->
+</head>
+<body>
+    <header>
+        <h1>Bookshelf App</h1> <!-- Header section with the app name -->
+    </header>
+    <main>
+        <!-- Form for inputting new book details -->
+        <article>
+            <h2>Input New Book</h2> 
+            <form id="form-data-user">
+                <!-- Input fields for book title, author, and published year -->
+                <label for="title">Book's Title</label>
+                <input 
+                type="text"
+                id="title"
+                name="title"
+                placeholder="e.g. Negeri 5 Menara"
+                required
+                >
+
+                <label for="author">Author</label>
+                <input 
+                type="text"
+                id="author"
+                name="author"
+                placeholder="e.g. Ahmad Fuadi"
+                >
+                
+                <label for="year">Published Year</label>
+                <input 
+                type="text"
+                id="year"
+                name="year"
+                placeholder="e.g. 2009"
+                >
+
+                <!-- Checkbox for marking if the book has been read -->
+                <label for="read">Already Read</label>
+                <input type="checkbox" id="read">
+
+                <!-- Submit button for adding the book to the bookshelf -->
+                <input type="submit" id="submit-title" value="Input Book to the Bookshelf">
+            </form>
+        </article>
+        <!-- Form for finding a specific book by its title -->
+        <article>
+            <h2>Find Your Title's Book</h2>
+            <form id="form-find-title-book">
+                <label for="find-title">Book's Title</label>
+                <input type="text" id="find-title" name="find-title">
+                <input type="submit" id="submit-find-title" value="Find">
+            </form>
+
+            <section>
+                <h2>Unfinished Books</h2>
+                <div class="list-item" id="reads"></div> 
+            </section>
+                <h2>Finished Books</h2>
+                <div class="list-item" id="finish-reads"></div> 
+            <section>
+        </article>
+    </main>
+    <footer>
+        Programmed by: Agung Rashif Madani <!-- Footer with programmer's name -->
+    </footer>
+</body>
+</html>
