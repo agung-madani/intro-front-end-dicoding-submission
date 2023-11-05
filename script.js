@@ -8,33 +8,40 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("submit clicked")
         addBook();
     });
-    // if (isStorageExist()) {
-    //     loadDataFromStorage();
-    // }
+    if (isStorageExist()) {
+        loadDataFromStorage();
+    }
 })
 
-// const STORAGE_KEY = 'SHELFBOOKS_APPS'
+const STORAGE_KEY = 'BOOKSHELF_APP'
 
-// function isStorageExist() {
-//     if (typeof (Storage) === undefined) {
-//         alert('Browser tidak support local storage, ganti browser!');
-//         return false;
-//     }
-//     return true;
-// }
+function isStorageExist() {
+    if (typeof (Storage) === undefined) {
+        alert('Browser tidak support local storage, ganti browser!');
+        return false;
+    }
+    return true;
+}
 
-// function loadDataFromStorage() {
-//     const serializedData = localStorage.getItem(STORAGE_KEY);
-//     let data = JSON.parse(serializedData);
+function saveData() {
+    if (isStorageExist()) {
+        const parsed = JSON.stringify(books);
+        localStorage.setItem(STORAGE_KEY, parsed);
+    }
+}
 
-//     if (data !== null) {
-//         for (const book of data) {
-//             books.push(book);
-//         }
-//     }
+function loadDataFromStorage() {
+    const serializedData = localStorage.getItem(STORAGE_KEY);
+    let data = JSON.parse(serializedData);
 
-//     document.dispatchEvent(new Event(RENDER_EVENT));
-// }
+    if (data !== null) {
+        for (const book of data) {
+            books.push(book);
+        }
+    }
+
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
 
 // Function to add a new Book
 function addBook() {
@@ -56,6 +63,7 @@ function addBook() {
     
     // Dispatching an event for rendering the updated book list
     document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
 }
 
 // Function to generate a unique ID based on timestamp
@@ -160,4 +168,59 @@ function makeBook(bookObject) {
         container.append(finishButton, trashButton);
     }
     return container;
+}
+
+// Function to add a Finished Book
+function addFinishedBook(bookId) {
+    const bookTarget = findBook(bookId);
+
+    if (bookTarget == null) return;
+
+    bookTarget.isComplete = true;
+    document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
+}
+
+// Function to undo a Finished Book
+function undoFinishedBook(bookId) {
+    const bookTarget = findBook(bookId);
+
+    if (bookTarget == null) return;
+
+    bookTarget.isComplete = false;
+    document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
+}
+
+// Function to find a specific book item by its ID
+function findBook(bookId) {
+    for (const bookItem of books) {
+        if (bookItem.id === bookId) {
+            return bookItem;
+        }
+    }
+
+    return null;
+}
+
+// Function to remove a Book
+function removeBook(bookId) {
+    const bookTarget = findBookIndex(bookId);
+
+    if (bookTarget === -1) return;
+
+    books.splice(bookTarget, 1);
+    document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
+}
+
+// function to find the index of a book item by its ID
+function findBookIndex(bookId) {
+    for (const index in books) {
+        if (books[index].id === bookId) {
+            return index;
+        }
+    }
+
+    return -1;
 }
