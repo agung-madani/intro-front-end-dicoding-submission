@@ -1,77 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookshelf App</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to the external style sheet -->
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aplikasi Rak Buku</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <h1>Bookshelf App</h1> <!-- Header section with the app name -->
+      <h1>Aplikasi Rak Buku</h1>
     </header>
     <main>
-        <!-- Form for inputting new book details -->
-        <article>
-            <h2>Input New Book</h2> 
-            <form id="form-data-user">
-                <!-- Input fields for book title, author, and published year -->
-                <label for="title">Book's Title</label>
-                <input 
-                type="text"
-                id="title"
-                name="title"
-                placeholder="e.g. Negeri 5 Menara"
-                required
-                >
+      <article>
+        <h2>Input Buku Baru</h2>
+        <form id="form-data-user">
+          <label for="title">Judul Buku</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="contoh: Negeri 5 Menara"
+            required
+          />
 
-                <label for="author">Author</label>
-                <input 
-                type="text"
-                id="author"
-                name="author"
-                placeholder="e.g. Ahmad Fuadi"
-                >
-                
-                <label for="year">Published Year</label>
-                <input 
-                type="number"
-                id="year"
-                name="year"
-                placeholder="e.g. 2009"
-                >
+          <label for="author">Penulis</label>
+          <input
+            type="text"
+            id="author"
+            name="author"
+            placeholder="contoh: Ahmad Fuadi"
+          />
 
-                <!-- Checkbox for marking if the book has been read -->
-                <label for="read">Already Read</label>
-                <input type="checkbox" id="read">
+          <label for="year">Tahun Terbit</label>
+          <input
+            type="number"
+            id="year"
+            name="year"
+            placeholder="contoh: 2009"
+          />
 
-                <!-- Submit button for adding the book to the bookshelf -->
-                <input type="submit" id="submit-title" value="Input Book to the Bookshelf">
-            </form>
-        </article>
-        <!-- Form for finding a specific book by its title -->
-        <article>
-            <h2>Find Your Title's Book</h2>
-            <form id="form-find-title-book">
-                <label for="find-title">Book's Title</label>
-                <input type="text" id="find-title" name="find-title">
-                <input type="submit" id="submit-find-title" value="Find">
-            </form>
+          <label for="read">Sudah Dibaca</label>
+          <input type="checkbox" id="read" />
 
-            <section>
-                <h2>Unfinished Books</h2>
-                <div class="list-item" id="reads"></div> 
-            </section>
+          <input
+            type="submit"
+            id="submit-title"
+            value="Masukkan Buku ke Rak Buku"
+          />
+        </form>
+      </article>
+      <article>
+        <h2>Cari Buku Berdasarkan Judul</h2>
+        <form id="form-find-title-book">
+          <label for="find-title">Judul Buku</label>
+          <input type="text" id="find-title" name="find-title" />
+          <input type="submit" id="submit-find-title" value="Cari" />
+        </form>
 
-            <section>
-                <h2>Finished Books</h2>
-                <div class="list-item" id="finish-reads"></div>
-            </section>
-        </article>
+        <section>
+          <h2>Buku Belum Selesai Dibaca</h2>
+          <div class="list-item" id="reads"></div>
+        </section>
+
+        <section>
+          <h2>Buku Selesai Dibaca</h2>
+          <div class="list-item" id="finish-reads"></div>
+        </section>
+      </article>
     </main>
-    <footer>
-        Programmed by: Agung Rashif Madani <!-- Footer with programmer's name -->
-    </footer>
+    <footer>Diprogram oleh: Agung Rashif Madani</footer>
     <script src="script.js" type="text/javascript"></script>
-</body>
+  </body>
 </html>
