@@ -1,7 +1,6 @@
 # Aplikasi Rak Buku / Bookshelf App
 
-This is a simple web application for managing a virtual bookshelf. It allows users to add new books, mark books as read or unread, search for specific books, and perform other book management operations. This Project is submission project for Dicoding module "Introduction to Front-End Development". Also implementing Local Storage to save the data.
-
+This is a simple web application for managing a virtual bookshelf. It allows users to add new books, mark books as read or unread, search for specific books, and perform other book management operations. This Project is submission project for Dicoding module "Introduction to Front-End Development".
 ## Features
 
 - Add new books to the bookshelf with details such as title, author, and publication year.
@@ -15,6 +14,10 @@ This is a simple web application for managing a virtual bookshelf. It allows use
 - HTML
 - CSS
 - JavaScript
+
+## Web Storage
+
+The application utilizes the browser's Local Storage feature to store the book data. This allows the application to persist data even after the page is refreshed or closed.
 
 ## How to Use
 
